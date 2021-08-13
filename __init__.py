@@ -43,10 +43,7 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
 
     await bot.send(message=f"检测到疑似{len(images)}张图片，开始上传...", event=event)
 
-    data = {
-        "successful_count": 0,
-        "urls": []
-    }
+    urls= []
     for image in images:
         url = image.data["url"] if image.get("type", None) == "image" else image.data["text"]
         # 上传图片到图床
@@ -55,11 +52,10 @@ async def _(bot: Bot, event: MessageEvent, state: T_State):
         if res["code"] != '0':
             await bot.send(event, res["data"]["error_info"])
         else:
-            data["urls"].append(res["data"]["url"])
-            data["successful_count"] += 1
+            urls.append(res["data"]["url"])
 
-    await bot.send(event, "成功上传%s张图片!" % data["successful_count"])
-    for url in data["urls"]:
+    await bot.send(event, "成功上传%s张图片!" % len(urls))
+    for url in urls:
         # 发送分享链接
         await bot.send(event, MessageSegment.share(url, title="点击查看图片", image=url))
 
