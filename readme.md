@@ -30,15 +30,15 @@ PictureBed 有两个抽象方法需要实现：
 
   在这里初始化图床的配置信息.
 
-  - `:param config:` config.py中对应图床的配置信息
+  `:param config:` config.py中对应图床的配置信息
 
 - ##### upload(url: str) -> dict
 
   上传图片方法.
 
-  - `:param url:` 图片地址
+  `:param url:` 图片地址
 
-  - `:returns: ` 上传结果信息，合法的返回值请参照 upload_fail 或 upload_success ，可直接使用
+  `:returns: ` 上传结果信息，合法的返回值请参照 upload_fail 或 upload_success ，可直接使用
 
 #### 4. 注册图床类
 
