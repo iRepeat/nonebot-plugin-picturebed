@@ -2,11 +2,11 @@
 
 ## 说明
 
-借助  **[Nonebot2](https://github.com/nonebot/nonebot2)** 调用图床API，快速将图片（或图片链接）上传至图床。
+借助  Nonebot2 调用图床API，快速将图片（或图片链接）上传至图床。
 
 ## 使用
 
-- clone后导入 **[Nonebot2](https://github.com/nonebot/nonebot2)** 插件目录，然后配置config，启动bot。
+- clone后导入 Nonebot2 插件目录，然后配置 config ，启动 bot 。
 - 使用 `upload 【图片】` 命令上传图片。
 - 使用 `图床 【图床名称】` 临时切换图床。
 
@@ -16,21 +16,21 @@
 
 #### 1. 添加配置
 
-向 config.py 添加图床可能用到的配置参数，如token，password
+向 [config.py](./config.py) 添加图床可能用到的配置参数，如 token ，password
 
 #### 2. 创建图床类
 
-创建图床类并继承抽象类 PictureBed 。
+创建图床类并继承抽象类 [PictureBed](./PictureBed.py) 。
 
 #### 3. 实现抽象方法
 
-PictureBed 有两个抽象方法需要实现：
+[PictureBed](./PictureBed.py) 有两个抽象方法需要实现：
 
 - ##### _\_init\_\_(config: dict)
 
   在这里初始化图床的配置信息.
 
-  `:param config:` config.py中对应图床的配置信息
+  `:param config:` [config.py](./config.py) 中对应图床的配置信息
 
 - ##### upload(url: str) -> dict
 
